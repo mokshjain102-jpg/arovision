@@ -1,10 +1,88 @@
-body{margin:0;font-family:Arial;background:#eef7ee;}
-header{background:#1b5e20;color:white;text-align:center;padding:20px;}
-nav{background:#2e7d32;text-align:center;padding:10px;}
-nav a{color:white;margin:10px;text-decoration:none;}
-.hero{padding:120px;text-align:center;color:white;
-background:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover;}
-button{padding:10px 20px;background:#4caf50;color:white;border:none;}
-.features{display:flex;justify-content:space-around;background:white;padding:20px;}
-.section{padding:40px;text-align:center;}
-.card{padding:20px;margin:10px;background:white;border-radius:10px;}
+body {
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+}
+
+header {
+display:flex;
+justify-content:space-between;
+padding:20px;
+background:#020617;
+}
+
+nav a {
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+.hero {
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:url("https://images.unsplash.com/photo-1560493676-04071c5f467b") center/cover;
+}
+
+.hero button {
+padding:15px;
+background:#22c55e;
+border:none;
+}
+
+.features {
+display:flex;
+justify-content:center;
+gap:20px;
+padding:40px;
+}
+
+.features div {
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+}
+
+#demo {
+text-align:center;
+padding:40px;
+}
+
+/* CHATBOT */
+#chatbot {
+position:fixed;
+right:20px;
+bottom:80px;
+width:280px;
+background:white;
+color:black;
+border-radius:10px;
+display:block;
+}
+
+#chatHeader {
+background:#22c55e;
+padding:10px;
+color:white;
+}
+
+#chatBox {
+height:150px;
+overflow:auto;
+padding:10px;
+}
+
+/* VOICE BUTTON */
+#voiceBtn {
+position:fixed;
+bottom:20px;
+right:20px;
+background:#22c55e;
+padding:15px;
+border-radius:50%;
+cursor:pointer;
+font-size:20px;
+}
