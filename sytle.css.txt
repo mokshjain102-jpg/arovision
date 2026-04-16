@@ -1,58 +1,135 @@
-let history = [];
-
-// SCAN
-function analyze(){
-let file = document.getElementById("file").files[0];
-if(!file){alert("Select image"); return;}
-
-let diseases=["Blight","Leaf Spot","Healthy"];
-let result = diseases[Math.floor(Math.random()*3)];
-
-let text = result + " detected";
-document.getElementById("output").innerText = text;
-
-history.push(text);
+1body {
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#0f172a;
+color:white;
 }
 
-// CHAT
-function sendMsg(e){
-if(e.key==="Enter"){
-let msg=document.getElementById("chatInput").value;
-handleBot(msg);
-}
-}
-
-function handleBot(msg){
-let reply="Upload image for better result";
-
-if(msg.includes("blight")) reply="Use fungicide";
-if(msg.includes("yellow")) reply="Add fertilizer";
-
-addMsg("You: "+msg);
-addMsg("Bot: "+reply);
-
-// voice reply
-let speech=new SpeechSynthesisUtterance(reply);
-speech.lang="hi-IN";
-speechSynthesis.speak(speech);
+/* NAVBAR */
+header {
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
 }
 
-// VOICE INPUT
-function startVoice(){
-let rec=new (window.SpeechRecognition||window.webkitSpeechRecognition)();
-rec.lang="hi-IN";
-rec.start();
-
-rec.onresult=function(e){
-let text=e.results[0][0].transcript;
-handleBot(text);
-}
+nav a {
+color:white;
+margin:15px;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
 }
 
-// UI
-function addMsg(text){
-let box=document.getElementById("chatBox");
-let div=document.createElement("div");
-div.innerText=text;
-box.appendChild(div);
+nav a:hover {
+color:#22c55e;
+}
+
+/* HERO */
+.hero {
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
+background-size:cover;
+}
+
+.hero h1 {
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero p {
+font-size:18px;
+}
+
+.hero button {
+margin-top:20px;
+padding:15px 30px;
+border:none;
+background:#22c55e;
+color:white;
+border-radius:30px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.hero button:hover {
+transform:scale(1.1);
+}
+
+/* FEATURES */
+.features {
+display:flex;
+justify-content:center;
+gap:20px;
+padding:60px;
+flex-wrap:wrap;
+}
+
+.features div {
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.features div:hover {
+transform:translateY(-10px);
+}
+
+/* DEMO */
+#demo {
+text-align:center;
+padding:60px;
+}
+
+#demo input, #demo button {
+padding:10px;
+margin:10px;
+}
+
+/* CHATBOT */
+#chatbot {
+position:fixed;
+right:20px;
+bottom:90px;
+width:300px;
+background:white;
+color:black;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+#chatHeader {
+background:#22c55e;
+color:white;
+padding:10px;
+font-weight:bold;
+}
+
+#chatBox {
+height:200px;
+overflow:auto;
+padding:10px;
+}
+
+/* VOICE BUTTON */
+#voiceBtn {
+position:fixed;
+bottom:20px;
+right:20px;
+background:#22c55e;
+padding:18px;
+border-radius:50%;
+cursor:pointer;
+font-size:22px;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
